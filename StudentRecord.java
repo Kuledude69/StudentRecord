@@ -18,15 +18,13 @@ public class StudentRecord
    //V
    public double average(int first, int last)
    {
-      double sum = 0.0;
-      for (int i = first; i <= last; i++)
-    {
-      sum+= scores[i];
-      sum /= (last - first)+1;
-    }
-    return sum; 
+      double average  = 0.0;
+      for (int i = first; i <= last; i++)  
+      average += scores[i];
+      average /= (last - first)+1;
+      return average; 
       //here so the class compiles
-   }
+   } 
     
    /** returns true if each successive value in scores is greater than
     *  or equal to the previous value; false otherwise.
