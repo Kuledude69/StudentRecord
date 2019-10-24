@@ -20,7 +20,9 @@ public class StudentRecord
    {
       double average  = 0.0;
       for (int i = first; i <= last; i++)  
+      {
       average += scores[i];
+    }
       average /= (last - first)+1;
       return average; 
       //here so the class compiles
@@ -30,7 +32,11 @@ public class StudentRecord
     *  or equal to the previous value; false otherwise.
     */
    private boolean hasImproved()
-   {
+   {    for (int i = scores.length-1; i >= 1; i--)
+            if (scores[i-1] >= scores[i])
+            {
+                return true;
+            }
       return false; //here so the class compiles
    }  
    
@@ -40,7 +46,12 @@ public class StudentRecord
     *  values in scores
     */
    public double finalAverage()
-   {
-      return 0; //here so the class compiles
+   { double average = 0.0;
+      if (hasImproved())
+      {
+          average = average(scores.length/2,scores.length-1);
+          return average;
+      }
+       return average(0,scores.length-1); //here so the class compiles
    } 
 }
